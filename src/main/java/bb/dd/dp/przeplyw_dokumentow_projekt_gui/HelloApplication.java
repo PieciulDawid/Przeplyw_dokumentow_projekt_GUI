@@ -15,7 +15,6 @@ public class HelloApplication extends Application {
 		
 		var stylesheets = scene.getStylesheets();
 		stylesheets.add("stylesheet.css");
-		
 		stage.setTitle("Hello!");
 		stage.setScene(scene);
 		stage.show();
