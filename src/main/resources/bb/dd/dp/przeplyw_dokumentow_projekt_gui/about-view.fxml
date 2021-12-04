@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="154.0" fitWidth="600.0" layoutX="99.0" layoutY="28.0">
          <image>
-            <Image url="@../../../../../../../../Materiały/LOGO.png" />
+            <Image url="@/LOGO.png"/>
          </image>
       </ImageView>
       <AnchorPane layoutX="300.0" layoutY="261.0" prefHeight="54.0" prefWidth="135.0">
