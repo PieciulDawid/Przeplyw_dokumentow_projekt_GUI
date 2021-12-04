@@ -1,13 +1,17 @@
 package bb.dd.dp.przeplyw_dokumentow_projekt_gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 public class LoginController {
 	
@@ -16,6 +20,9 @@ public class LoginController {
 	
 	@FXML
 	private URL location;
+	
+	@FXML
+	private VBox viewRoot;
 	
 	@FXML
 	private TextField loginTextField;
@@ -45,6 +52,13 @@ public class LoginController {
 			return;
 		}
 		
-		System.out.println("Logged in!");
+		try {
+			var zabaLoader = new FXMLLoader(HelloApplication.class.getResource("about-view.fxml"));
+			((BorderPane) viewRoot.getParent()).setCenter(zabaLoader.load());
+		}
+		catch(IOException e) {
+			System.out.println("No " + "zaba-view.fxml" + " found.");
+		}
+		
 	}
 }
