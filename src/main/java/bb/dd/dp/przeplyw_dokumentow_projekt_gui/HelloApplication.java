@@ -20,7 +20,10 @@ public class HelloApplication extends Application {
 		((BorderPane)scene.getRoot()).setCenter(loginLoader.load());
 		
 		var stylesheets = scene.getStylesheets();
-		stylesheets.add("stylesheet.css");
+		
+		//	TODO css do dodania gdy uda się w nim ogarnąć
+		//	 jak dodać widoczność klikania przycisków
+		//stylesheets.add("stylesheet.css");
 		stage.setTitle("BB DD DP");
 		stage.setScene(scene);
 		stage.show();
