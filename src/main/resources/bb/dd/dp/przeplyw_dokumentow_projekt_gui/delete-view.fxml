@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="150.0" prefWidth="600.0">
+         <children>
+            <AnchorPane prefHeight="150.0" prefWidth="600.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <Label layoutX="157.0" layoutY="63.0" text="Czy na pewno chcesz usunąć ten element?" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="600.0">
+         <children>
+            <AnchorPane prefHeight="50.0" prefWidth="300.0">
+               <children>
+                  <Button layoutX="121.0" layoutY="10.0" mnemonicParsing="false" text="Anuluj" AnchorPane.bottomAnchor="30.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="50.0" prefWidth="300.0">
+               <children>
+                  <Button layoutX="125.0" layoutY="10.0" mnemonicParsing="false" text="Usuń" AnchorPane.bottomAnchor="30.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>
