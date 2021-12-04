@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="340.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bb.dd.dp.przeplyw_dokumentow_projekt_gui.AboutView">
+<AnchorPane prefHeight="340.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="154.0" fitWidth="600.0" layoutX="99.0" layoutY="28.0">
          <image>
