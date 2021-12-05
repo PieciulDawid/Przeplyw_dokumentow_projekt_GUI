@@ -21,6 +21,7 @@ import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -45,7 +46,7 @@ public class ProductController {
     private TextField searchTextField;
 
     @FXML
-    private HBox viewroot;
+    private AnchorPane viewRoot;
 
     public void setTableView(TableView<ProductModel> tableView) {
         this.tableView = tableView;
@@ -56,12 +57,7 @@ public class ProductController {
 
     @FXML
     void initialize() {
-        assert addButton != null : "fx:id=\"addButton\" was not injected: check your FXML file 'search-view.fxml'.";
-        assert goBackButton != null : "fx:id=\"goBackButton\" was not injected: check your FXML file 'search-view.fxml'.";
-        assert seachButton != null : "fx:id=\"seachButton\" was not injected: check your FXML file 'search-view.fxml'.";
-        assert searchTextField != null : "fx:id=\"searchTextField\" was not injected: check your FXML file 'search-view.fxml'.";
-        assert viewroot != null : "fx:id=\"viewroot\" was not injected: check your FXML file 'search-view.fxml'.";
-
+        
         goBackButton.setOnMouseClicked(this::goBack);
         goBackButton.setOnKeyPressed((KeyEvent event)->{
             if (event.getCode().equals(KeyCode.ENTER)) {
@@ -78,7 +74,7 @@ public class ProductController {
     }
 
     void goBack(InputEvent inputEvent) {
-        var parent = ((BorderPane)viewroot.getParent());
+        var parent = ((BorderPane)viewRoot.getParent());
         parent.setTop(null);
         var groupList = ((Group) parent.getCenter()).getChildren();
         groupList.remove(groupList.size()-1);

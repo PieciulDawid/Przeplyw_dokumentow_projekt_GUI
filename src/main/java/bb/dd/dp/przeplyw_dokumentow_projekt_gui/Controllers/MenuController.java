@@ -84,12 +84,11 @@ public class MenuController {
 
 
     }
-    void product(InputEvent inputEvent)
-    {
+    void product(InputEvent inputEvent) {
         var group = ((Group)viewRoot.getParent());
         try {
-            var searchLoader = new FXMLLoader(HelloApplication.class.getResource("search-view.fxml"));
-            var search = (HBox)searchLoader.load();
+            var searchLoader = new FXMLLoader(HelloApplication.class.getResource("product-view.fxml"));
+            var search = (AnchorPane)searchLoader.load();
             group.getChildren().forEach((n)->n.setDisable(true));
             var tableView = new TableView<ProductModel>();
             ((ProductController)searchLoader.getController()).setTableView(tableView);
@@ -105,7 +104,7 @@ public class MenuController {
         }
 
     }
-    void  employee(InputEvent inputEvent){
+    void  employee(InputEvent inputEvent) {
        var group = ((Group)viewRoot.getParent());
         try{
             var searchLoader = new FXMLLoader(HelloApplication.class.getResource("search-view.fxml"));
