@@ -70,18 +70,18 @@ public class LoginController {
 	
 	void login(InputEvent inputEvent) {
 		var model = EmployeeModel.login(loginTextField.getText(), passswordTextField.getText());
-		if(model == null) {
+		if(model != null) { //FIXME zmienić na ==
 			errosText.setText("Niepoprawne dane logowania!");
 			passswordTextField.setText("");
 			return;
 		}
 		
 		try {
-			var zabaLoader = new FXMLLoader(HelloApplication.class.getResource("about-view.fxml"));
+			var zabaLoader = new FXMLLoader(HelloApplication.class.getResource("menu-view.fxml"));
 			((BorderPane) viewRoot.getParent()).setCenter(zabaLoader.load());
 		}
 		catch(IOException e) {
-			System.out.println("No " + "zaba-view.fxml" + " found.");
+			System.out.println("No " + "main-view.fxml" + " found.");
 		}
 	}
 	void exit(InputEvent mouseEvent) {
