@@ -18,8 +18,10 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 public class EmployeeController {
 
@@ -83,7 +85,7 @@ public class EmployeeController {
         var surnamecol = new TableColumn<EmployeeModel,String>("Nazwisko");
         var logincol = new TableColumn<EmployeeModel,String>("Login");
         var passwordcol = new TableColumn<EmployeeModel,String>("Haslo");
-        idcol.setPrefWidth(40);
+        idcol.setPrefWidth(30);
         idcol.setCellValueFactory(
                 new PropertyValueFactory<>("Id")
         );
@@ -97,19 +99,19 @@ public class EmployeeController {
                 }
         );
         
-        namecol.setPrefWidth(290);
+        namecol.setPrefWidth(270);
         namecol.setCellValueFactory(
                 new PropertyValueFactory<>("Name")
         );
-        surnamecol.setPrefWidth(290);
+        surnamecol.setPrefWidth(270);
         surnamecol.setCellValueFactory(
                 new PropertyValueFactory<>("Surname")
         );
-        logincol.setPrefWidth(290);
+        logincol.setPrefWidth(270);
         logincol.setCellValueFactory(
                 new PropertyValueFactory<>("Login")
         );
-        passwordcol.setPrefWidth(290);
+        passwordcol.setPrefWidth(270);
         passwordcol.setCellValueFactory(
                 new PropertyValueFactory<>("Password")
         );
@@ -118,7 +120,6 @@ public class EmployeeController {
         
         ObservableList<EmployeeModel> data = FXCollections.observableArrayList(EmployeeModel.getAll().values());
         tableView.setItems(data);
-        
-        
+    
     }
 }

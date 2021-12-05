@@ -62,7 +62,11 @@ public class MenuController {
             }
         });
         employesButton.setOnMouseClicked(this::employee);
-        employesButton.setOnKeyPressed(this::employee);
+        employesButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.employee(event);
+            }
+        });
 //        clientsButton.setOnMouseClicked(this::client);
 //        clientsButton.setOnKeyPressed(this::client);
 //        productsButton.setOnMouseClicked(this::product);

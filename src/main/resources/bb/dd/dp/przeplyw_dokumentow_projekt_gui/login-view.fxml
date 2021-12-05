@@ -25,7 +25,7 @@
                   </Text>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hasło" wrappingWidth="44.6434326171875">
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="19.0" />
                      </VBox.margin>
                      <font>
                         <Font size="16.0" />
