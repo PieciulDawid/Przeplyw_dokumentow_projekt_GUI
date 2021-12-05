@@ -6,17 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416.0" prefWidth="600.0"
-            style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 0, 10, 10); -fx-border-width: 2px; -fx-border-color: #DBDBDB;"
-            xmlns="http://javafx.com/javafx/16"
-            xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="viewRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416.0" prefWidth="600.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 0, 10, 10); -fx-border-width: 2px; -fx-border-color: #DBDBDB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bb.dd.dp.przeplyw_dokumentow_projekt_gui.MenuController">
    <children>
-       <ImageView fitHeight="370.0" fitWidth="590.0" layoutX="4.0" layoutY="5.0" style="-fx-border-width: 2px; -fx-border-color: #DBDBDB;">
+       <ImageView fitHeight="370.0" fitWidth="590.0" layoutX="4.0" layoutY="5.0" preserveRatio="true" style="-fx-border-width: 2px; -fx-border-color: #DBDBDB;">
            <image>
                <Image url="@/zaba.gif" />
            </image>
        </ImageView>
-      <Button layoutX="269.0" layoutY="380.0" mnemonicParsing="false" prefWidth="65.0" text="Cofnij">
+      <Button fx:id="goBackButton" layoutX="269.0" layoutY="380.0" mnemonicParsing="false" prefWidth="65.0" text="Cofnij">
          <font>
             <Font size="14.0" />
          </font>
