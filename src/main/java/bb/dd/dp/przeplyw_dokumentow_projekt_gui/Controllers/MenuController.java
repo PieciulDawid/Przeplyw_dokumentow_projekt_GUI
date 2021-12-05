@@ -47,6 +47,7 @@ public class MenuController {
     
     void logout(InputEvent inputEvent) {
         var group = ((Group) viewRoot.getParent());
+        group.getChildren().forEach((n)->n.setDisable(true));
         try {
             group.getChildren().add(FXMLLoader.load(HelloApplication.class.getResource("logout-view.fxml")));
         } catch(IOException e) {
