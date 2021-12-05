@@ -30,10 +30,8 @@ public class MainController {
 	
 	@FXML
 	void initialize() {
-		var siema = new Text("Siema");
 		var backgroundColor = new Background(new BackgroundFill(Color.CYAN, CornerRadii.EMPTY, Insets.EMPTY));
 		mainPane.setBackground(backgroundColor);
-		mainPane.setTop(siema);
 
 		for (int i = 160; i<255; i++) {
 			colors[i-160] = new Background(new BackgroundFill(Color.color(0, (float) i / 255, 1), CornerRadii.EMPTY, Insets.EMPTY));

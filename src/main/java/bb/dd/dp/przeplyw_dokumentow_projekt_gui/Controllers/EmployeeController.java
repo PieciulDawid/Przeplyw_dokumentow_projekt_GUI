@@ -67,6 +67,13 @@ public class EmployeeController {
                 this.goBack(event);
             }
         });
+    
+        seachButton.setOnMouseClicked(this::search);
+        seachButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.search(event);
+            }
+        });
     }
     
     void goBack(InputEvent inputEvent) {
@@ -75,6 +82,12 @@ public class EmployeeController {
         var groupList = ((Group) parent.getCenter()).getChildren();
         groupList.remove(groupList.size()-1);
         groupList.get(groupList.size()-1).setDisable(false);
+    }
+    
+    void search(InputEvent inputEvent) {
+        var items = FXCollections
+                .observableArrayList(EmployeeModel.search(searchTextField.getText()).values());
+        tableView.setItems(items);
     }
     
     
@@ -118,7 +131,7 @@ public class EmployeeController {
         
         tableView.getColumns().addAll(idcol, namecol, surnamecol, logincol, passwordcol);
         
-        ObservableList<EmployeeModel> data = FXCollections.observableArrayList(EmployeeModel.getAll().values());
+        var data = FXCollections.observableArrayList(EmployeeModel.getAll().values());
         tableView.setItems(data);
     
     }
