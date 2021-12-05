@@ -55,6 +55,9 @@ public class MenuController {
         assert aboutUsButton != null : "fx:id=\"aboutUsButton\" was not injected: check your FXML file 'menu-view.fxml'.";
         assert logoutButton != null : "fx:id=\"logoutButton\" was not injected: check your FXML file 'menu-view.fxml'.";
 
+        nameText.setText(EmployeeModel.getLoggedUser().getName() + " " +
+                EmployeeModel.getLoggedUser().getSurname());
+
         logoutButton.setOnMouseClicked(this::logout);
         logoutButton.setOnKeyPressed((KeyEvent event)->{
             if (event.getCode().equals(KeyCode.ENTER)) {
