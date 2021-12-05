@@ -6,13 +6,11 @@ import java.util.ResourceBundle;
 import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.EmployeeModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.InputEvent;
@@ -156,6 +154,15 @@ public class EmployeeController {
                     EmployeeModel.modify(tmp);
                 }
         );
+    
+        var mi1 = new MenuItem("Usuń pracownika");
+        mi1.setOnAction((ActionEvent event) -> {
+            var index = tableView.getSelectionModel().getSelectedIndex();
+            var tmp = tableView.getItems().remove(index);
+            EmployeeModel.delete(tmp);
+        });
+    
+        tableView.setContextMenu(new ContextMenu(mi1));
         
         tableView.getColumns().addAll(idcol, namecol, surnamecol, logincol, passwordcol);
         
