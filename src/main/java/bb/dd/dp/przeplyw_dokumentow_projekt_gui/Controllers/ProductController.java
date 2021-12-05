@@ -11,10 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.InputEvent;
@@ -91,6 +88,7 @@ public class ProductController {
 
     void initTableView() {
         tableView.setEditable(true);
+        tableView.setPlaceholder(new Label("Tabela jest pusta - nie znaleziono odpowiadajacych wartości."));
         var idcol = new TableColumn<ProductModel,String>("ID");
         var namecol = new TableColumn<ProductModel,String>("Nazwa");
         var pricecol = new TableColumn<ProductModel,Float>("Cena");

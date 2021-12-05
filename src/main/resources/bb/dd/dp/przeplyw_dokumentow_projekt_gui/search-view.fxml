@@ -36,7 +36,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="55.0" prefWidth="39.0">
                <children>
-                  <Button fx:id="goBackButton" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefWidth="85.0" text="Cofnij">
+                  <Button fx:id="goBackButton" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefWidth="85.0" text="Wróć">
                      <font>
                         <Font size="14.0" />
                      </font>

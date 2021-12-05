@@ -102,6 +102,7 @@ public class ClientController {
 	
 	void initTableView() {
 		tableView.setEditable(true);
+		tableView.setPlaceholder(new Label("Tabela jest pusta - nie znaleziono odpowiadajacych wartości."));
 		var idCol = new TableColumn<ClientModel,String>("ID");
 		var emailCol = new TableColumn<ClientModel,String>("Email");
 		var addressCol = new TableColumn<ClientModel,String>("Adres");

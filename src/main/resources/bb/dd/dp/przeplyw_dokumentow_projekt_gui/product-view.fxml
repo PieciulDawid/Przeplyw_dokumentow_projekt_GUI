@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="viewRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers.ProductController">
    <children>
-      <HBox layoutX="45.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1110.0" style="-fx-background-color: white; -fx-border-width: 2px; -fx-border-color: #DBDBDB; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 0, 10, 10);">
+      <HBox layoutX="45.0" layoutY="102.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1110.0" style="-fx-background-color: white; -fx-border-width: 2px; -fx-border-color: #DBDBDB; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 0, 10, 10);">
          <children>
             <AnchorPane prefHeight="100.0" prefWidth="600.0">
                <children>
@@ -36,7 +36,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="55.0" prefWidth="39.0">
                <children>
-                  <Button fx:id="goBackButton" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefWidth="85.0" text="Cofnij">
+                  <Button fx:id="goBackButton" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefWidth="85.0" text="Wróć">
                      <font>
                         <Font size="14.0" />
                      </font>
