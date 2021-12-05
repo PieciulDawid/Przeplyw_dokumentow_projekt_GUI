@@ -73,6 +73,13 @@ public class EmployeeController {
                 this.search(event);
             }
         });
+    
+        addButton.setOnMouseClicked(this::add);
+        addButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.add(event);
+            }
+        });
     }
     
     void goBack(InputEvent inputEvent) {
@@ -90,13 +97,19 @@ public class EmployeeController {
     }
     
     
+    void add(InputEvent inputEvent) {
+        EmployeeModel.add(new EmployeeModel(0,"","","",""));
+        var items = EmployeeModel.getAll().values();
+        tableView.getItems().add(items.stream().skip(items.size()-1).toList().get(0));
+    }
+    
     void initTableView() {
         tableView.setEditable(true);
         var idcol = new TableColumn<EmployeeModel,String>("ID");
         var namecol = new TableColumn<EmployeeModel,String>("Imie");
         var surnamecol = new TableColumn<EmployeeModel,String>("Nazwisko");
         var logincol = new TableColumn<EmployeeModel,String>("Login");
-        var passwordcol = new TableColumn<EmployeeModel,String>("Haslo");
+        var passwordcol = new TableColumn<EmployeeModel,String>("Hasło");
         idcol.setPrefWidth(30);
         idcol.setCellValueFactory(
                 new PropertyValueFactory<>("Id")
