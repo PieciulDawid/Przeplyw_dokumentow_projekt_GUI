@@ -94,7 +94,7 @@ public class ClientController {
 	
 	
 	void add(InputEvent inputEvent) {
-		ClientModel.add(new ClientModel(0,"","",123456789));
+		ClientModel.add(new ClientModel(0,"","",""));
 		var items = ClientModel.getAll().values();
 		tableView.getItems().add(items.stream().skip(items.size()-1).toList().get(0));
 	}
@@ -145,7 +145,7 @@ public class ClientController {
 				t ->{
 					var tmp = t.getTableView().getItems().get(
 							t.getTablePosition().getRow());
-					tmp.setTelephoneNumber(Integer.parseInt(t.getNewValue()));
+					tmp.setTelephoneNumber(t.getNewValue());
 					ClientModel.modify(tmp);
 				}
 		);

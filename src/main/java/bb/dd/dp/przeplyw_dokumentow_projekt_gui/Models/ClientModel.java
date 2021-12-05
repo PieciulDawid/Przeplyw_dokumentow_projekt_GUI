@@ -19,9 +19,9 @@ public class ClientModel implements Model {
     private int Id;
     private String Email;
     private String Address;
-    private int TelephoneNumber;
+    private String TelephoneNumber;
 
-    public ClientModel(int id, String email, String address, int telephoneNumber) {
+    public ClientModel(int id, String email, String address, String telephoneNumber) {
         Id = id;
         Email = email;
         Address = address;
@@ -38,7 +38,7 @@ public class ClientModel implements Model {
     public String getAddress() {
         return Address;
     }
-    public int getTelephoneNumber() {
+    public String getTelephoneNumber() {
         return TelephoneNumber;
     }
 
@@ -52,7 +52,7 @@ public class ClientModel implements Model {
     public void setAddress(String address) {
         Address = address;
     }
-    public void setTelephoneNumber(int telephoneNumber) {
+    public void setTelephoneNumber(String telephoneNumber) {
         TelephoneNumber = telephoneNumber;
     }
 
@@ -90,7 +90,7 @@ public class ClientModel implements Model {
                                     Integer.parseInt(raw[0]),
                                     raw[1],
                                     raw[2],
-                                    Integer.parseInt(raw[3])
+                                    raw[3]
                             ))
                     .collect(Collectors.toMap(
                             ClientModel::getId,
@@ -110,7 +110,7 @@ public class ClientModel implements Model {
         Predicate<ClientModel> filterFunction = null;
         if(keyword.matches("^[0-9]{3}")) {
              filterFunction = (ClientModel item) -> {
-                 return Integer.toString(item.getTelephoneNumber()).startsWith(keywordLowerCase);
+                 return item.getTelephoneNumber().startsWith(keywordLowerCase);
              };
         }
         else {

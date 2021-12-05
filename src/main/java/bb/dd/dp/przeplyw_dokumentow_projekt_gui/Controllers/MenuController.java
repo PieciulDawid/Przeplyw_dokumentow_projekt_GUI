@@ -1,6 +1,7 @@
 package bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers;
 
 import bb.dd.dp.przeplyw_dokumentow_projekt_gui.HelloApplication;
+import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.ClientModel;
 import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.EmployeeModel;
 import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.ProductModel;
 import javafx.application.Platform;
@@ -71,8 +72,8 @@ public class MenuController {
                 this.employee(event);
             }
         });
-//        clientsButton.setOnMouseClicked(this::client);
-//        clientsButton.setOnKeyPressed(this::client);
+        clientsButton.setOnMouseClicked(this::client);
+        clientsButton.setOnKeyPressed(this::client);
         productsButton.setOnMouseClicked(this::product);
         productsButton.setOnKeyPressed(this::product);
         aboutUsButton.setOnMouseClicked(this::aboutUs);
@@ -83,6 +84,26 @@ public class MenuController {
         });
 
 
+    }
+    void client(InputEvent inputEvent) {
+        var group = ((Group)viewRoot.getParent());
+        try {
+            var searchLoader = new FXMLLoader(HelloApplication.class.getResource("client-view.fxml"));
+            var search = (AnchorPane)searchLoader.load();
+            group.getChildren().forEach((n)->n.setDisable(true));
+            var tableView = new TableView<ClientModel>();
+            ((ClientController)searchLoader.getController()).setTableView(tableView);
+            ((ClientController)searchLoader.getController()).initTableView();
+            group.getChildren().add(tableView);
+            ((BorderPane)group.getParent()).setTop(search);
+        }
+        catch(IOException e){
+            var parent = ((BorderPane)group.getParent());
+            parent.setCenter(null);
+            e.printStackTrace();
+            Platform.exit();
+        }
+        
     }
     void product(InputEvent inputEvent) {
         var group = ((Group)viewRoot.getParent());
