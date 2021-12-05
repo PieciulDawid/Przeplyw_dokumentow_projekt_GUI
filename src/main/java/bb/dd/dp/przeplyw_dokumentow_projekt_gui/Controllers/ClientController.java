@@ -22,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.util.StringConverter;
 
 public class ClientController {
 	
@@ -94,7 +95,7 @@ public class ClientController {
 	
 	
 	void add(InputEvent inputEvent) {
-		ClientModel.add(new ClientModel(0,"","",""));
+		ClientModel.add(new ClientModel(0,"","",0));
 		var items = ClientModel.getAll().values();
 		tableView.getItems().add(items.stream().skip(items.size()-1).toList().get(0));
 	}
@@ -104,7 +105,7 @@ public class ClientController {
 		var idCol = new TableColumn<ClientModel,String>("ID");
 		var emailCol = new TableColumn<ClientModel,String>("Email");
 		var addressCol = new TableColumn<ClientModel,String>("Adres");
-		var telephoneNumberCol = new TableColumn<ClientModel,String>("Numer telefonu");
+		var telephoneNumberCol = new TableColumn<ClientModel,Integer>("Numer telefonu");
 		idCol.setPrefWidth(30);
 		idCol.setCellValueFactory(
 				new PropertyValueFactory<>("Id")
@@ -140,7 +141,22 @@ public class ClientController {
 		telephoneNumberCol.setCellValueFactory(
 				new PropertyValueFactory<>("TelephoneNumber")
 		);
-		telephoneNumberCol.setCellFactory(TextFieldTableCell.forTableColumn());
+		telephoneNumberCol.setCellFactory(TextFieldTableCell.forTableColumn(
+				new StringConverter<>() {
+					@Override
+					public String toString(Integer integer) {
+						if(integer == null)
+							return "";
+						return integer.toString();
+					}
+					
+					@Override
+					public Integer fromString(String s) {
+						if(s == null || s.equals(""))
+							return 0;
+						return Integer.parseInt(s);
+					}
+				}));
 		telephoneNumberCol.setOnEditCommit(
 				t ->{
 					var tmp = t.getTableView().getItems().get(

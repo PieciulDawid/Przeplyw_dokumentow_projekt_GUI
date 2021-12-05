@@ -25,6 +25,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.util.StringConverter;
 
 public class ProductController {
     @FXML
@@ -92,8 +93,8 @@ public class ProductController {
         tableView.setEditable(true);
         var idcol = new TableColumn<ProductModel,String>("ID");
         var namecol = new TableColumn<ProductModel,String>("Nazwa");
-        var pricecol = new TableColumn<ProductModel,String>("Cena");
-        var amountcol = new TableColumn<ProductModel,String>("Login");
+        var pricecol = new TableColumn<ProductModel,Float>("Cena");
+        var amountcol = new TableColumn<ProductModel,Integer>("Ilość");
         idcol.setPrefWidth(30);
         idcol.setCellValueFactory(
                 new PropertyValueFactory<>("Id")
@@ -115,27 +116,57 @@ public class ProductController {
 
         pricecol.setPrefWidth(270);
         pricecol.setCellValueFactory(
-                new PropertyValueFactory<>("Surname")
+                new PropertyValueFactory<>("Price")
         );
-        pricecol.setCellFactory(TextFieldTableCell.forTableColumn());
+        pricecol.setCellFactory(TextFieldTableCell.forTableColumn(
+                new StringConverter<>() {
+                    @Override
+                    public String toString(Float aFloat) {
+                        if(aFloat == null)
+                            return "";
+                        return aFloat.toString();
+                    }
+    
+                    @Override
+                    public Float fromString(String s) {
+                        if(s == null || s.equals(""))
+                            return 0.0f;
+                        return Float.parseFloat(s);
+                    }
+                }));
         pricecol.setOnEditCommit(
                 t ->{
                     var tmp = t.getTableView().getItems().get(
                             t.getTablePosition().getRow());
-                    tmp.setPrice(Float.parseFloat(t.getNewValue()));
+                    tmp.setPrice(t.getNewValue());
                     ProductModel.modify(tmp);
                 }
         );
         amountcol.setPrefWidth(270);
         amountcol.setCellValueFactory(
-                new PropertyValueFactory<>("Login")
+                new PropertyValueFactory<>("Amount")
         );
-        amountcol.setCellFactory(TextFieldTableCell.forTableColumn());
+        amountcol.setCellFactory(TextFieldTableCell.forTableColumn(
+                new StringConverter<>() {
+                    @Override
+                    public String toString(Integer integer) {
+                        if(integer == null)
+                            return "";
+                        return integer.toString();
+                    }
+    
+                    @Override
+                    public Integer fromString(String s) {
+                        if(s == null || s.equals(""))
+                            return 0;
+                        return Integer.parseInt(s);
+                    }
+                }));
         amountcol.setOnEditCommit(
                 t ->{
                     var tmp = t.getTableView().getItems().get(
                             t.getTablePosition().getRow());
-                    tmp.setPrice(Integer.parseInt(t.getNewValue()));
+                    tmp.setPrice(t.getNewValue());
                     ProductModel.modify(tmp);
                 }
         );
