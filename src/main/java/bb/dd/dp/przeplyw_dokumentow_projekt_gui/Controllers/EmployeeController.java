@@ -121,13 +121,40 @@ public class EmployeeController {
         surnamecol.setCellValueFactory(
                 new PropertyValueFactory<>("Surname")
         );
+        surnamecol.setCellFactory(TextFieldTableCell.forTableColumn());
+        surnamecol.setOnEditCommit(
+                t ->{
+                    var tmp = t.getTableView().getItems().get(
+                            t.getTablePosition().getRow());
+                    tmp.setSurname(t.getNewValue());
+                    EmployeeModel.modify(tmp);
+                }
+        );
         logincol.setPrefWidth(270);
         logincol.setCellValueFactory(
                 new PropertyValueFactory<>("Login")
         );
+        logincol.setCellFactory(TextFieldTableCell.forTableColumn());
+        logincol.setOnEditCommit(
+                t ->{
+                    var tmp = t.getTableView().getItems().get(
+                            t.getTablePosition().getRow());
+                    tmp.setLogin(t.getNewValue());
+                    EmployeeModel.modify(tmp);
+                }
+        );
         passwordcol.setPrefWidth(270);
         passwordcol.setCellValueFactory(
                 new PropertyValueFactory<>("Password")
+        );
+        passwordcol.setCellFactory(TextFieldTableCell.forTableColumn());
+        passwordcol.setOnEditCommit(
+                t ->{
+                    var tmp = t.getTableView().getItems().get(
+                            t.getTablePosition().getRow());
+                    tmp.setPassword(t.getNewValue());
+                    EmployeeModel.modify(tmp);
+                }
         );
         
         tableView.getColumns().addAll(idcol, namecol, surnamecol, logincol, passwordcol);
