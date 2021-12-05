@@ -94,3 +94,13 @@
     -fx-background-color: #C2C2C2;
     -fx-background-radius: 15px;
 }
+
+.menu-item: hover {
+    -fx-background-color: grey;
+    -fx-text-background-color: white;
+}
+
+.menu-item: focused {
+    -fx-background-color: grey;
+    -fx-text-background-color: white;
+}
