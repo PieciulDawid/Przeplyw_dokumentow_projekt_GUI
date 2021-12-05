@@ -28,6 +28,7 @@ public class ZabaController {
 		assert goBackButton != null : "fx:id=\"goBackButton\" was not injected: check your FXML file 'zaba-view.fxml'.";
 		goBackButton.setOnKeyPressed(this::goBack);
 		goBackButton.setOnMouseClicked(this::goBack);
+		rotateButton();
 	}
 	
 	void goBack(InputEvent inputEvent) {
@@ -36,6 +37,9 @@ public class ZabaController {
 		childrenList.forEach((n)->n.setDisable(false));
 	}
 	void rotateButton(){
-		
+
+		viewRoot.setRotate(15);
+
+
 	}
 }
