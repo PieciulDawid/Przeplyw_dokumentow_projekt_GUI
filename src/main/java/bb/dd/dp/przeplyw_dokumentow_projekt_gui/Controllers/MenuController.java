@@ -12,6 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -58,7 +59,12 @@ public class MenuController {
                 this.logout(event);
             }
         });
-
+        employesButton.setOnMouseClicked(this::employee);
+        employesButton.setOnKeyPressed(this::employee);
+//        clientsButton.setOnMouseClicked(this::client);
+//        clientsButton.setOnKeyPressed(this::client);
+//        productsButton.setOnMouseClicked(this::product);
+//        productsButton.setOnKeyPressed(this::product);
         aboutUsButton.setOnMouseClicked(this::aboutUs);
         aboutUsButton.setOnKeyPressed((KeyEvent event)->{
             if (event.getCode().equals(KeyCode.ENTER)) {
@@ -68,7 +74,24 @@ public class MenuController {
 
 
     }
-    
+    void  employee(InputEvent inputEvent){
+       var group = ((Group)viewRoot.getParent());
+        try{
+
+            var bottom = (HBox)FXMLLoader.load(HelloApplication.class.getResource("search-view.fxml"));
+            group.getChildren().forEach((n)->n.setDisable(true));
+            ((BorderPane)group.getParent()).setBottom(bottom);
+        }
+        catch(IOException e){
+            var parent = ((BorderPane)group.getParent());
+            parent.setCenter(null);
+            e.printStackTrace();
+            Platform.exit();
+        }
+
+
+    }
+
     void logout(InputEvent inputEvent) {
         var group = ((Group) viewRoot.getParent());
         group.getChildren().forEach((n)->n.setDisable(true));
