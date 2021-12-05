@@ -84,13 +84,15 @@ public class MenuController {
        var group = ((Group)viewRoot.getParent());
         try{
             var searchLoader = new FXMLLoader(HelloApplication.class.getResource("search-view.fxml"));
-            var search = (HBox)searchLoader.load();
+            var search = (AnchorPane)searchLoader.load();
             group.getChildren().forEach((n)->n.setDisable(true));
             var tableView = new TableView<EmployeeModel>();
             ((EmployeeController)searchLoader.getController()).setTableView(tableView);
             ((EmployeeController)searchLoader.getController()).initTableView();
             group.getChildren().add(tableView);
             ((BorderPane)group.getParent()).setTop(search);
+            search.relocate(group.getLayoutBounds().getWidth() - search.getWidth()/2,
+                    group.getLayoutBounds().getHeight() /2 - search.getHeight()/2);
         }
         catch(IOException e){
             var parent = ((BorderPane)group.getParent());
