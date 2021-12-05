@@ -33,5 +33,6 @@ public class ZabaController {
 	void goBack(InputEvent inputEvent) {
 		var childrenList = ((Group)viewRoot.getParent()).getChildren();
 		childrenList.remove(childrenList.size()-1);
+		childrenList.forEach((n)->n.setDisable(false));
 	}
 }
