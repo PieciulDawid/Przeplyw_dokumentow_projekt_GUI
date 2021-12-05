@@ -18,7 +18,6 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
@@ -51,7 +50,6 @@ public class EmployeeController {
     
     private TableView<EmployeeModel> tableView;
 
-    private ObservableList<Node> group;
 
     @FXML
     void initialize() {
@@ -61,7 +59,22 @@ public class EmployeeController {
         assert searchTextField != null : "fx:id=\"searchTextField\" was not injected: check your FXML file 'search-view.fxml'.";
         assert viewroot != null : "fx:id=\"viewroot\" was not injected: check your FXML file 'search-view.fxml'.";
         
+        goBackButton.setOnMouseClicked(this::goBack);
+        goBackButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.goBack(event);
+            }
+        });
     }
+    
+    void goBack(InputEvent inputEvent) {
+        var parent = ((BorderPane)viewroot.getParent());
+        parent.setTop(null);
+        var groupList = ((Group) parent.getCenter()).getChildren();
+        groupList.remove(groupList.size()-1);
+        groupList.get(groupList.size()-1).setDisable(false);
+    }
+    
     
     void initTableView() {
         tableView.setEditable(true);
