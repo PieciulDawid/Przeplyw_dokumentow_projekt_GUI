@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class LoginController {
 	
@@ -29,6 +30,9 @@ public class LoginController {
 	
 	@FXML
 	private PasswordField passswordTextField;
+
+	@FXML
+	private Text errosText;
 	
 	@FXML
 	private Button exitButton;
@@ -42,12 +46,15 @@ public class LoginController {
 		assert passswordTextField != null : "fx:id=\"passswordTextField\" was not injected: check your FXML file 'login-view.fxml'.";
 		assert exitButton != null : "fx:id=\"exitButton\" was not injected: check your FXML file 'login-view.fxml'.";
 		assert loginButton != null : "fx:id=\"loginButton\" was not injected: check your FXML file 'login-view.fxml'.";
+
 		loginButton.setOnMouseClicked(this::login);
+		exitButton.setOnMouseClicked(this::exit);
 	}
 	
 	void login(MouseEvent mouseEvent) {
 		if(!Objects.equals(loginTextField.getText(), "admin") || !Objects.equals(passswordTextField.getText(), "admin")) {
-			loginTextField.setText("");
+			errosText.setText("Niepoprawne dane logowania!");
+			//loginTextField.setText("");
 			passswordTextField.setText("");
 			return;
 		}
@@ -59,6 +66,9 @@ public class LoginController {
 		catch(IOException e) {
 			System.out.println("No " + "zaba-view.fxml" + " found.");
 		}
-		
 	}
+	void exit(MouseEvent mouseEvent) {
+		System.out.println("AAAA");
+	}
+
 }

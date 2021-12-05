@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="viewRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="114.0" prefWidth="261.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bb.dd.dp.przeplyw_dokumentow_projekt_gui.LoginController">
+<VBox fx:id="viewRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="151.0" prefWidth="261.0" style="-fx-border-width: 2 px; -fx-border-color: #DBDBDB; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 0, 10, 10); -fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bb.dd.dp.przeplyw_dokumentow_projekt_gui.LoginController">
    <children>
       <HBox prefHeight="60.0" prefWidth="400.0">
          <children>
@@ -45,10 +45,17 @@
             </VBox>
          </children>
       </HBox>
-      <HBox prefHeight="86.0" prefWidth="262.0" />
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="86.0" prefWidth="262.0">
          <children>
-            <HBox prefHeight="35.0" prefWidth="123.0" />
+            <Text fx:id="errosText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="163.7367000579834">
+               <HBox.margin>
+                  <Insets left="55.0" top="6.0" />
+               </HBox.margin>
+            </Text>
+         </children></HBox>
+      <HBox prefHeight="0.0" prefWidth="262.0">
+         <children>
+            <HBox prefHeight="30.0" prefWidth="111.0" />
             <HBox prefHeight="35.0" prefWidth="70.0">
                <children>
                   <Button fx:id="exitButton" mnemonicParsing="false" prefWidth="65.0" text="Wyjdź">
@@ -73,4 +80,7 @@
          </children>
       </HBox>
    </children>
+   <padding>
+      <Insets bottom="9.0" left="5.0" right="5.0" top="9.0" />
+   </padding>
 </VBox>
