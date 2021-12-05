@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.InputEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -51,9 +53,17 @@ public class LoginController {
 		assert loginButton != null : "fx:id=\"loginButton\" was not injected: check your FXML file 'login-view.fxml'.";
 
 		loginButton.setOnMouseClicked(this::login);
-		loginButton.setOnKeyPressed(this::login);
+		loginButton.setOnKeyPressed((KeyEvent event)->{
+			if (event.getCode().equals(KeyCode.ENTER)) {
+				this.login(event);
+			}
+		});
 		exitButton.setOnMouseClicked(this::exit);
-		exitButton.setOnKeyPressed(this::exit);
+		exitButton.setOnKeyPressed((KeyEvent event)->{
+			if (event.getCode().equals(KeyCode.ENTER)) {
+				this.exit(event);
+			}
+		});
 	}
 	
 	void login(InputEvent inputEvent) {
