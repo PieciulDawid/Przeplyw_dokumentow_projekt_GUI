@@ -1,4 +1,11 @@
+.button{
+    -fx-background-color: #a9a9a9 , white , white;
+}
 
+.button:focused{
+    -fx-background-color: #a9a9a9 , white , black;
+    -fx-text-fill: white;
+}
 
 .text-field {
     -fx-background-color: #a9a9a9 , white , white;
