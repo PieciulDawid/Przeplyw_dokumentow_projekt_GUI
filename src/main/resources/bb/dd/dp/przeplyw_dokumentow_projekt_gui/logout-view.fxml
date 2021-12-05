@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="viewRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="114.0" prefWidth="266.0" style="-fx-border-width: 2 px; -fx-background-color: white; -fx-border-color: #DBDBDB; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 0, 10, 10);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers.LogoutController">
+<AnchorPane fx:id="viewRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="114.0" prefWidth="266.0" style="-fx-border-width: 2px; -fx-background-color: white; -fx-border-color: #DBDBDB; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 0, 10, 10);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers.LogoutController">
    <children>
       <Text layoutX="87.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wylogowano">
          <font>

@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.input.InputEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -23,7 +24,7 @@ public class LogoutController {
 	private URL location;
 	
 	@FXML
-	private VBox viewRoot;
+	private AnchorPane viewRoot;
 	
 	@FXML
 	private Button logoutButton;

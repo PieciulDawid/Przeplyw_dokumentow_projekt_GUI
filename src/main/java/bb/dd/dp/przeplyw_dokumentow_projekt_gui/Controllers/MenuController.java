@@ -50,7 +50,8 @@ public class MenuController {
         try {
             group.getChildren().add(FXMLLoader.load(HelloApplication.class.getResource("logout-view.fxml")));
         } catch(IOException e) {
-            ((BorderPane)group.getParent()).setCenter(null);
+            var parent = ((BorderPane)group.getParent());
+            parent.setCenter(null);
             e.printStackTrace();
             Platform.exit();
         }
