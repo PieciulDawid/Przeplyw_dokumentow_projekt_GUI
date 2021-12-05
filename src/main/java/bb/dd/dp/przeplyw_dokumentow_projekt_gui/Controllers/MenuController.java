@@ -2,6 +2,7 @@ package bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers;
 
 import bb.dd.dp.przeplyw_dokumentow_projekt_gui.HelloApplication;
 import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.EmployeeModel;
+import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.ProductModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -72,8 +73,8 @@ public class MenuController {
         });
 //        clientsButton.setOnMouseClicked(this::client);
 //        clientsButton.setOnKeyPressed(this::client);
-//        productsButton.setOnMouseClicked(this::product);
-//        productsButton.setOnKeyPressed(this::product);
+        productsButton.setOnMouseClicked(this::product);
+        productsButton.setOnKeyPressed(this::product);
         aboutUsButton.setOnMouseClicked(this::aboutUs);
         aboutUsButton.setOnKeyPressed((KeyEvent event)->{
             if (event.getCode().equals(KeyCode.ENTER)) {
@@ -81,6 +82,27 @@ public class MenuController {
             }
         });
 
+
+    }
+    void product(InputEvent inputEvent)
+    {
+        var group = ((Group)viewRoot.getParent());
+        try {
+            var searchLoader = new FXMLLoader(HelloApplication.class.getResource("search-view.fxml"));
+            var search = (HBox)searchLoader.load();
+            group.getChildren().forEach((n)->n.setDisable(true));
+            var tableView = new TableView<ProductModel>();
+            ((ProductController)searchLoader.getController()).setTableView(tableView);
+            ((ProductController)searchLoader.getController()).initTableView();
+            group.getChildren().add(tableView);
+            ((BorderPane)group.getParent()).setTop(search);
+        }
+        catch(IOException e){
+            var parent = ((BorderPane)group.getParent());
+            parent.setCenter(null);
+            e.printStackTrace();
+            Platform.exit();
+        }
 
     }
     void  employee(InputEvent inputEvent){
