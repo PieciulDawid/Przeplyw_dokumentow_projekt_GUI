@@ -2,6 +2,7 @@ package bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collection;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -10,6 +11,8 @@ import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.EmployeeModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -78,7 +81,7 @@ public class LoginController {
 		
 		try {
 			var zabaLoader = new FXMLLoader(HelloApplication.class.getResource("menu-view.fxml"));
-			((BorderPane) viewRoot.getParent()).setCenter(zabaLoader.load());
+			((BorderPane) viewRoot.getParent()).setCenter(new Group((Node) zabaLoader.load()));
 		}
 		catch(IOException e) {
 			System.out.println("No " + "main-view.fxml" + " found.");
