@@ -73,7 +73,7 @@ public class LoginController {
 	
 	void login(InputEvent inputEvent) {
 		var model = EmployeeModel.login(loginTextField.getText(), passswordTextField.getText());
-		if(model != null) { //FIXME zmienić na ==
+		if(model == null) {
 			errosText.setText("Niepoprawne dane logowania!");
 			passswordTextField.setText("");
 			return;
