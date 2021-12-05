@@ -8,6 +8,8 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.InputEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
@@ -51,10 +53,19 @@ public class MenuController {
         assert logoutButton != null : "fx:id=\"logoutButton\" was not injected: check your FXML file 'menu-view.fxml'.";
 
         logoutButton.setOnMouseClicked(this::logout);
-        logoutButton.setOnKeyPressed(this::logout);
+        logoutButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.logout(event);
+            }
+        });
 
         aboutUsButton.setOnMouseClicked(this::aboutUs);
-        aboutUsButton.setOnKeyPressed(this::aboutUs);
+        aboutUsButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.aboutUs(event);
+            }
+        });
+
 
     }
     

@@ -35,11 +35,17 @@
             </VBox>
             <VBox prefHeight="79.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="loginTextField" />
+                  <TextField fx:id="loginTextField">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
                   <PasswordField fx:id="passswordTextField">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </PasswordField>
                </children>
             </VBox>

@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.input.InputEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class ZabaController {
@@ -30,8 +32,14 @@ public class ZabaController {
 	void initialize() {
 		assert viewRoot != null : "fx:id=\"viewRoot\" was not injected: check your FXML file 'zaba-view.fxml'.";
 		assert goBackButton != null : "fx:id=\"goBackButton\" was not injected: check your FXML file 'zaba-view.fxml'.";
-		goBackButton.setOnKeyPressed(this::goBack);
+
 		goBackButton.setOnMouseClicked(this::goBack);
+		goBackButton.setOnKeyPressed((KeyEvent event)->{
+			if (event.getCode().equals(KeyCode.ENTER)) {
+				this.goBack(event);
+			}
+		});
+
 		animationTimer = new AnimationTimer() {
 			@Override
 			public void handle(long l) {

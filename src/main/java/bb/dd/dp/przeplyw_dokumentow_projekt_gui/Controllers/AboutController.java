@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.input.InputEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -40,10 +42,18 @@ public class AboutController {
         assert goBackButton != null : "fx:id=\"goBackButton\" was not injected: check your FXML file 'about-view.fxml'.";
 
         goBackButton.setOnMouseClicked(this::goBack);
-        goBackButton.setOnKeyPressed(this::goBack);
+        goBackButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.goBack(event);
+            }
+        });
 
         zabaButton.setOnMouseClicked(this::displayZaba);
-        zabaButton.setOnKeyPressed(this::displayZaba);
+        zabaButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.displayZaba(event);
+            }
+        });
 
     }
 
