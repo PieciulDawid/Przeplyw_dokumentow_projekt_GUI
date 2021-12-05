@@ -35,4 +35,7 @@ public class ZabaController {
 		childrenList.remove(childrenList.size()-1);
 		childrenList.forEach((n)->n.setDisable(false));
 	}
+	void rotateButton(){
+		
+	}
 }
