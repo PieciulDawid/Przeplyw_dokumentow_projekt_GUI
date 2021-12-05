@@ -49,7 +49,9 @@ public class MenuController {
         var group = ((Group) viewRoot.getParent());
         group.getChildren().forEach((n)->n.setDisable(true));
         try {
-            group.getChildren().add(FXMLLoader.load(HelloApplication.class.getResource("logout-view.fxml")));
+            var logoutView = (AnchorPane)FXMLLoader.load(HelloApplication.class.getResource("logout-view.fxml"));
+            group.getChildren().add(logoutView);
+            logoutView.relocate(logoutView.getBoundsInParent().getHeight()/2, logoutView.getBoundsInParent().getWidth()/2);
         } catch(IOException e) {
             var parent = ((BorderPane)group.getParent());
             parent.setCenter(null);
