@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+
+<VBox fx:id="viewroot" prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="300.0" text="imie" textAlignment="CENTER">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <TextField prefWidth="250.0">
+            <VBox.margin>
+                <Insets left="25.0" right="25.0" />
+            </VBox.margin>
+            <rotationAxis>
+                <Point3D />
+            </rotationAxis>
+        </TextField>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="300.0" text="nazwsiko" textAlignment="CENTER">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <TextField prefWidth="250.0">
+            <VBox.margin>
+                <Insets left="25.0" right="25.0" />
+            </VBox.margin>
+        </TextField>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="300.0" text="stan" textAlignment="CENTER">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <TextField prefWidth="250.0">
+            <VBox.margin>
+                <Insets left="25.0" right="25.0" />
+            </VBox.margin>
+        </TextField>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="150.0">
+                    <children>
+                        <Button layoutX="33.0" layoutY="34.0" mnemonicParsing="false" prefWidth="85.0" text="Dodaj">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="150.0">
+                    <children>
+                        <Button layoutX="34.0" layoutY="35.0" mnemonicParsing="false" prefWidth="85.0" text="Anuluj">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+    </children>
+</VBox>
