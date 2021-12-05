@@ -4,6 +4,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriterBuilder;
 import com.opencsv.ICSVWriter;
 import com.opencsv.exceptions.CsvException;
+import javafx.beans.property.SimpleStringProperty;
 
 import java.io.FileReader;
 import java.io.FileWriter;

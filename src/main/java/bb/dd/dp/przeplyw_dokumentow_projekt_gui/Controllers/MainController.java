@@ -21,9 +21,9 @@ public class MainController {
 	
 	@FXML
 	void initialize() {
-		var siema = new Text("Siema");
-		var backgroundColor = new Background(new BackgroundFill(Color.CYAN, CornerRadii.EMPTY, Insets.EMPTY));
-		mainPane.setBackground(backgroundColor);
-		mainPane.setTop(siema);
+//		var siema = new Text("Siema");
+//		var backgroundColor = new Background(new BackgroundFill(Color.CYAN, CornerRadii.EMPTY, Insets.EMPTY));
+//		mainPane.setBackground(backgroundColor);
+//		mainPane.setTop(siema);
 	}
 }

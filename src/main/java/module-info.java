@@ -8,4 +8,5 @@ module bb.dd.dp.przeplyw_dokumentow_projekt_gui {
 	exports bb.dd.dp.przeplyw_dokumentow_projekt_gui;
 	exports bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers;
 	opens bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers to javafx.fxml;
+	opens bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models to javafx.base;
 }

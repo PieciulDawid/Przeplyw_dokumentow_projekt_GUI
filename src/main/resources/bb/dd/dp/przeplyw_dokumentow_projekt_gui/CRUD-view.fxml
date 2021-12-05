@@ -110,12 +110,12 @@
       </VBox>
    </left>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="pierwsza" />
-          <TableColumn prefWidth="75.0" text="druga" />
-            <TableColumn prefWidth="75.0" text="trzecia" />
-            <TableColumn prefWidth="75.0" text="hehe" />
+          <TableColumn prefWidth="225.0" text="pierwsza" />
+          <TableColumn prefWidth="225.0" text="druga" />
+            <TableColumn prefWidth="225.0" text="trzecia" />
+            <TableColumn prefWidth="225.0" text="hehe" />
         </columns>
       </TableView>
    </center>
