@@ -60,7 +60,7 @@ public class AboutController {
     void goBack(InputEvent inputEvent) {
         var childrenList = ((Group)viewRoot.getParent()).getChildren();
         childrenList.remove(childrenList.size()-1);
-        childrenList.forEach((n)->n.setDisable(false));
+        childrenList.get(childrenList.size()-1).setDisable(false);
     }
     void displayZaba(InputEvent inputEvent) {
         var group = ((Group) viewRoot.getParent());
