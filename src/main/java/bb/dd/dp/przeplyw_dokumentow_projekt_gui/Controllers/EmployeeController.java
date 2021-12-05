@@ -109,7 +109,7 @@ public class EmployeeController {
         var namecol = new TableColumn<EmployeeModel,String>("Imie");
         var surnamecol = new TableColumn<EmployeeModel,String>("Nazwisko");
         var logincol = new TableColumn<EmployeeModel,String>("Login");
-        var passwordcol = new TableColumn<EmployeeModel,String>("Haslo");
+        var passwordcol = new TableColumn<EmployeeModel,String>("Hasło");
         idcol.setPrefWidth(30);
         idcol.setCellValueFactory(
                 new PropertyValueFactory<>("Id")
