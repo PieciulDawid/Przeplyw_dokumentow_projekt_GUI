@@ -39,7 +39,11 @@ public class EmployeeController {
 
     @FXML
     private HBox viewroot;
-
+    
+    public void setTableView(TableView<EmployeeModel> tableView) {
+        this.tableView = tableView;
+    }
+    
     private TableView<EmployeeModel> tableView;
 
     private ObservableList<Node> group;
@@ -51,10 +55,10 @@ public class EmployeeController {
         assert seachButton != null : "fx:id=\"seachButton\" was not injected: check your FXML file 'search-view.fxml'.";
         assert searchTextField != null : "fx:id=\"searchTextField\" was not injected: check your FXML file 'search-view.fxml'.";
         assert viewroot != null : "fx:id=\"viewroot\" was not injected: check your FXML file 'search-view.fxml'.";
-
-        group = ((Group)((BorderPane)viewroot.getScene().getRoot()).getCenter()).getChildren();
-
-        tableView = new TableView<>();
+        
+    }
+    
+    void initTableView() {
         tableView.setEditable(true);
         var idcol = new TableColumn<EmployeeModel,Integer>("ID");
         var namecol = new TableColumn<EmployeeModel,String>("Imie");
@@ -81,13 +85,11 @@ public class EmployeeController {
         passwordcol.setCellValueFactory(
                 new PropertyValueFactory<>("Password")
         );
-
+    
         tableView.getColumns().addAll(idcol, namecol, surnamecol, logincol, passwordcol);
-
+    
         ObservableList<EmployeeModel> data = FXCollections.observableArrayList(EmployeeModel.getAll().values());
         tableView.setItems(data);
-
-        group.add(tableView);
-        group.get(group.size()-2).setDisable(true);
+    
     }
 }

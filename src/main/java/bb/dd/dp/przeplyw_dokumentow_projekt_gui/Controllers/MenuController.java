@@ -1,12 +1,14 @@
 package bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers;
 
 import bb.dd.dp.przeplyw_dokumentow_projekt_gui.HelloApplication;
+import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.EmployeeModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -77,10 +79,14 @@ public class MenuController {
     void  employee(InputEvent inputEvent){
        var group = ((Group)viewRoot.getParent());
         try{
-
-            var bottom = (HBox)FXMLLoader.load(HelloApplication.class.getResource("search-view.fxml"));
+            var searchLoader = new FXMLLoader(HelloApplication.class.getResource("search-view.fxml"));
+            var search = (HBox)searchLoader.load();
             group.getChildren().forEach((n)->n.setDisable(true));
-            ((BorderPane)group.getParent()).setBottom(bottom);
+            var tableView = new TableView<EmployeeModel>();
+            ((EmployeeController)searchLoader.getController()).setTableView(tableView);
+            ((EmployeeController)searchLoader.getController()).initTableView();
+            group.getChildren().add(tableView);
+            ((BorderPane)group.getParent()).setTop(search);
         }
         catch(IOException e){
             var parent = ((BorderPane)group.getParent());
