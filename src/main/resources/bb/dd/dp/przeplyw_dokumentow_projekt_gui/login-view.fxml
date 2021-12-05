@@ -55,10 +55,10 @@
          </children></HBox>
       <HBox prefHeight="0.0" prefWidth="262.0">
          <children>
-            <HBox prefHeight="30.0" prefWidth="111.0" />
-            <HBox prefHeight="35.0" prefWidth="70.0">
+            <HBox prefHeight="30.0" prefWidth="103.0" />
+            <HBox prefHeight="30.0" prefWidth="76.0">
                <children>
-                  <Button fx:id="exitButton" mnemonicParsing="false" prefWidth="65.0" text="Wyjdź">
+                  <Button fx:id="exitButton" mnemonicParsing="false" prefWidth="70.0" text="Wyjdź">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -67,7 +67,7 @@
             </HBox>
             <HBox prefHeight="35.0" prefWidth="67.0">
                <children>
-                  <Button fx:id="loginButton" mnemonicParsing="false" prefWidth="65.0" text="Zaloguj">
+                  <Button fx:id="loginButton" mnemonicParsing="false" prefWidth="70.0" text="Zaloguj">
                      <font>
                         <Font size="14.0" />
                      </font>
