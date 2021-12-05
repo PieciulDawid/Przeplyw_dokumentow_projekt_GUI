@@ -1,4 +1,4 @@
-package bb.dd.dp.przeplyw_dokumentow_projekt_gui;
+package bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

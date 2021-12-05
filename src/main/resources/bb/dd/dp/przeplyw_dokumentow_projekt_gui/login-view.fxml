@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="viewRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="151.0" prefWidth="261.0" style="-fx-border-width: 2 px; -fx-background-color: white; -fx-border-color: #DBDBDB; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 0, 10, 10);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bb.dd.dp.przeplyw_dokumentow_projekt_gui.LoginController">
+<VBox fx:id="viewRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="151.0" prefWidth="261.0" style="-fx-border-width: 2 px; -fx-background-color: white; -fx-border-color: #DBDBDB; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 0, 10, 10);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers.LoginController">
    <children>
       <HBox prefHeight="60.0" prefWidth="400.0">
          <children>

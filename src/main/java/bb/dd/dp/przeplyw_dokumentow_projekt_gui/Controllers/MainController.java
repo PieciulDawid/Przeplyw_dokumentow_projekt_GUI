@@ -1,4 +1,4 @@
-package bb.dd.dp.przeplyw_dokumentow_projekt_gui;
+package bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

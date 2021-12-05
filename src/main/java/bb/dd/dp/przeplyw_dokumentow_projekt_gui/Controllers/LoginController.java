@@ -1,10 +1,12 @@
-package bb.dd.dp.przeplyw_dokumentow_projekt_gui;
+package bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import bb.dd.dp.przeplyw_dokumentow_projekt_gui.HelloApplication;
+import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.EmployeeModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,9 +69,9 @@ public class LoginController {
 	}
 	
 	void login(InputEvent inputEvent) {
-		if(!Objects.equals(loginTextField.getText(), "admin") || !Objects.equals(passswordTextField.getText(), "admin")) {
+		var model = EmployeeModel.login(loginTextField.getText(), passswordTextField.getText());
+		if(model == null) {
 			errosText.setText("Niepoprawne dane logowania!");
-			//loginTextField.setText("");
 			passswordTextField.setText("");
 			return;
 		}
