@@ -59,7 +59,7 @@ public class AboutController {
             var logoutView = (AnchorPane)FXMLLoader.load(HelloApplication.class.getResource("zaba-view.fxml"));
             group.getChildren().add(logoutView);
             logoutView.relocate(group.getLayoutBounds().getWidth() /2 - logoutView.getWidth()/2,
-                    group.getLayoutBounds().getHeight() /2 - logoutView.getHeight()/2);
+                    group.getLayoutBounds().getHeight() /2);
         } catch(IOException e) {
             var parent = ((BorderPane)group.getParent());
             parent.setCenter(null);
