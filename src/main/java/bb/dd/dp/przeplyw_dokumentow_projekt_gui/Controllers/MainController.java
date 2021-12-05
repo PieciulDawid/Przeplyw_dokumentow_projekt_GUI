@@ -4,10 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class MainController {
@@ -24,7 +22,8 @@ public class MainController {
 	@FXML
 	void initialize() {
 		var siema = new Text("Siema");
-		
+		var backgroundColor = new Background(new BackgroundFill(Color.CYAN, CornerRadii.EMPTY, Insets.EMPTY));
+		mainPane.setBackground(backgroundColor);
 		mainPane.setTop(siema);
 	}
 }
