@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.EmployeeModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -14,9 +15,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-
 public class EmployeeController {
 
     @FXML
@@ -60,7 +61,7 @@ public class EmployeeController {
     
     void initTableView() {
         tableView.setEditable(true);
-        var idcol = new TableColumn<EmployeeModel,Integer>("ID");
+        var idcol = new TableColumn<EmployeeModel,String>("ID");
         var namecol = new TableColumn<EmployeeModel,String>("Imie");
         var surnamecol = new TableColumn<EmployeeModel,String>("Nazwisko");
         var logincol = new TableColumn<EmployeeModel,String>("Login");
@@ -69,6 +70,16 @@ public class EmployeeController {
         idcol.setCellValueFactory(
                 new PropertyValueFactory<>("Id")
         );
+        namecol.setCellFactory(TextFieldTableCell.forTableColumn());
+        namecol.setOnEditCommit(
+                t ->{
+                    var tmp = t.getTableView().getItems().get(
+                        t.getTablePosition().getRow());
+                    tmp.setName(t.getNewValue());
+                    EmployeeModel.modify(tmp);
+                }
+        );
+
         namecol.setPrefWidth(290);
         namecol.setCellValueFactory(
                 new PropertyValueFactory<>("Name")
@@ -90,6 +101,7 @@ public class EmployeeController {
     
         ObservableList<EmployeeModel> data = FXCollections.observableArrayList(EmployeeModel.getAll().values());
         tableView.setItems(data);
+
     
     }
 }
