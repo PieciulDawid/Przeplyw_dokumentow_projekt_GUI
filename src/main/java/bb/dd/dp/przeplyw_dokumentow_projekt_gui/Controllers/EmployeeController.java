@@ -14,6 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -77,7 +78,7 @@ public class EmployeeController {
     
     void initTableView() {
         tableView.setEditable(true);
-        var idcol = new TableColumn<EmployeeModel,Integer>("ID");
+        var idcol = new TableColumn<EmployeeModel,String>("ID");
         var namecol = new TableColumn<EmployeeModel,String>("Imie");
         var surnamecol = new TableColumn<EmployeeModel,String>("Nazwisko");
         var logincol = new TableColumn<EmployeeModel,String>("Login");
@@ -86,6 +87,16 @@ public class EmployeeController {
         idcol.setCellValueFactory(
                 new PropertyValueFactory<>("Id")
         );
+        namecol.setCellFactory(TextFieldTableCell.forTableColumn());
+        namecol.setOnEditCommit(
+                t ->{
+                    var tmp = t.getTableView().getItems().get(
+                            t.getTablePosition().getRow());
+                    tmp.setName(t.getNewValue());
+                    EmployeeModel.modify(tmp);
+                }
+        );
+        
         namecol.setPrefWidth(290);
         namecol.setCellValueFactory(
                 new PropertyValueFactory<>("Name")
@@ -102,11 +113,12 @@ public class EmployeeController {
         passwordcol.setCellValueFactory(
                 new PropertyValueFactory<>("Password")
         );
-    
+        
         tableView.getColumns().addAll(idcol, namecol, surnamecol, logincol, passwordcol);
-    
+        
         ObservableList<EmployeeModel> data = FXCollections.observableArrayList(EmployeeModel.getAll().values());
         tableView.setItems(data);
-    
+        
+        
     }
 }
