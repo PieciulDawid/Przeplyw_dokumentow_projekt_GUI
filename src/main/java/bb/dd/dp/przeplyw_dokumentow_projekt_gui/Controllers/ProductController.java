@@ -102,6 +102,7 @@ public class ProductController {
 
     void initTableView() {
         tableView.setEditable(true);
+        tableView.setPlaceholder(new Label("Tabela jest pusta - nie znaleziono odpowiadajacych wartości."));
         var idcol = new TableColumn<ProductModel,String>("ID");
         var namecol = new TableColumn<ProductModel,String>("Nazwa");
         var pricecol = new TableColumn<ProductModel,Float>("Cena");

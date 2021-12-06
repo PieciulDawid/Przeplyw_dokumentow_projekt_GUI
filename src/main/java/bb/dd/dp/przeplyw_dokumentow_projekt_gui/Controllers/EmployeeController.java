@@ -100,6 +100,7 @@ public class EmployeeController {
     
     void initTableView() {
         tableView.setEditable(true);
+        tableView.setPlaceholder(new Label("Tabela jest pusta - nie znaleziono odpowiadajacych wartości."));
         var idcol = new TableColumn<EmployeeModel,String>("ID");
         var namecol = new TableColumn<EmployeeModel,String>("Imie");
         var surnamecol = new TableColumn<EmployeeModel,String>("Nazwisko");
