@@ -13,6 +13,8 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.InputEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -35,7 +37,11 @@ public class LogoutController {
 	void initialize() {
 		EmployeeModel.logout();
 		logoutButton.setOnMouseClicked(this::logout);
-		logoutButton.setOnKeyPressed(this::logout);
+		logoutButton.setOnKeyPressed((KeyEvent event)->{
+			if (event.getCode().equals(KeyCode.ENTER)) {
+				this.logout(event);
+			}
+		});
 	}
 	
 	void logout(InputEvent inputEvent) {

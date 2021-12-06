@@ -52,11 +52,7 @@ public class LoginController {
 	
 	@FXML
 	void initialize() {
-		assert loginTextField != null : "fx:id=\"loginTextField\" was not injected: check your FXML file 'login-view.fxml'.";
-		assert passswordTextField != null : "fx:id=\"passswordTextField\" was not injected: check your FXML file 'login-view.fxml'.";
-		assert exitButton != null : "fx:id=\"exitButton\" was not injected: check your FXML file 'login-view.fxml'.";
-		assert loginButton != null : "fx:id=\"loginButton\" was not injected: check your FXML file 'login-view.fxml'.";
-
+		
 		loginButton.setOnMouseClicked(this::login);
 		loginButton.setOnKeyPressed((KeyEvent event)->{
 			if (event.getCode().equals(KeyCode.ENTER)) {

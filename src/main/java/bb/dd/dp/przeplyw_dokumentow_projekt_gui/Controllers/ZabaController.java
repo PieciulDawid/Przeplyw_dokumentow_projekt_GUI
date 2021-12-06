@@ -30,9 +30,7 @@ public class ZabaController {
 	
 	@FXML
 	void initialize() {
-		assert viewRoot != null : "fx:id=\"viewRoot\" was not injected: check your FXML file 'zaba-view.fxml'.";
-		assert goBackButton != null : "fx:id=\"goBackButton\" was not injected: check your FXML file 'zaba-view.fxml'.";
-
+		
 		goBackButton.setOnMouseClicked(this::goBack);
 		goBackButton.setOnKeyPressed((KeyEvent event)->{
 			if (event.getCode().equals(KeyCode.ENTER)) {

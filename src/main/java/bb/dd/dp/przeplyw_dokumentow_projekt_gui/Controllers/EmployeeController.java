@@ -54,11 +54,6 @@ public class EmployeeController {
 
     @FXML
     void initialize() {
-        assert addButton != null : "fx:id=\"addButton\" was not injected: check your FXML file 'search-view.fxml'.";
-        assert goBackButton != null : "fx:id=\"goBackButton\" was not injected: check your FXML file 'search-view.fxml'.";
-        assert seachButton != null : "fx:id=\"seachButton\" was not injected: check your FXML file 'search-view.fxml'.";
-        assert searchTextField != null : "fx:id=\"searchTextField\" was not injected: check your FXML file 'search-view.fxml'.";
-        assert viewRoot != null : "fx:id=\"viewroot\" was not injected: check your FXML file 'search-view.fxml'.";
         
         goBackButton.setOnMouseClicked(this::goBack);
         goBackButton.setOnKeyPressed((KeyEvent event)->{

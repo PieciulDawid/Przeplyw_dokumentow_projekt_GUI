@@ -73,9 +73,17 @@ public class MenuController {
             }
         });
         clientsButton.setOnMouseClicked(this::client);
-        clientsButton.setOnKeyPressed(this::client);
+        clientsButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.client(event);
+            }
+        });
         productsButton.setOnMouseClicked(this::product);
-        productsButton.setOnKeyPressed(this::product);
+        productsButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.product(event);
+            }
+        });
         aboutUsButton.setOnMouseClicked(this::aboutUs);
         aboutUsButton.setOnKeyPressed((KeyEvent event)->{
             if (event.getCode().equals(KeyCode.ENTER)) {

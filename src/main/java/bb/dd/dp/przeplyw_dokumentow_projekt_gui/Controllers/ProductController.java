@@ -4,17 +4,16 @@ package bb.dd.dp.przeplyw_dokumentow_projekt_gui.Controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.ClientModel;
 import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.EmployeeModel;
 import bb.dd.dp.przeplyw_dokumentow_projekt_gui.Models.ProductModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.InputEvent;
@@ -72,6 +71,13 @@ public class ProductController {
                 this.search(event);
             }
         });
+    
+        addButton.setOnMouseClicked(this::add);
+        addButton.setOnKeyPressed((KeyEvent event)->{
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                this.add(event);
+            }
+        });
     }
 
     void goBack(InputEvent inputEvent) {
@@ -87,7 +93,12 @@ public class ProductController {
                 .observableArrayList(ProductModel.search(searchTextField.getText()).values());
         tableView.setItems(items);
     }
-
+    
+    void add(InputEvent inputEvent) {
+        ProductModel.add(new ProductModel(0,"",0.0f,0));
+        var items = ProductModel.getAll().values();
+        tableView.getItems().add(items.stream().skip(items.size()-1).toList().get(0));
+    }
 
     void initTableView() {
         tableView.setEditable(true);
@@ -170,7 +181,16 @@ public class ProductController {
                     ProductModel.modify(tmp);
                 }
         );
-
+    
+        var mi1 = new MenuItem("Usuń produkt");
+        mi1.setOnAction((ActionEvent event) -> {
+            var index = tableView.getSelectionModel().getSelectedIndex();
+            var tmp = tableView.getItems().remove(index);
+            ProductModel.delete(tmp);
+        });
+    
+        tableView.setContextMenu(new ContextMenu(mi1));
+        
 
         tableView.getColumns().addAll(idcol, namecol, pricecol, amountcol);
 
